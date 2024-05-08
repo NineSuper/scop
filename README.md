@@ -1,7 +1,7 @@
 # SCOP - Mini-projet d'Infographie
 
 
-Bienvenue dans SCOP 👾, un mini-projet passionnant de l'école 42 dédié à l'infographie et au rendu 3D ! 
+Bienvenue dans SCOP 👾 Un mini-projet passionnant de l'école 42 dédié à l'infographie et au rendu 3D ! 
 
 Ici, on plonge dans le monde captivant de la programmation graphique. On apprend à donner vie à des objets 3D à partir de fichiers .obj, tout en explorant différentes techniques de rendu et de manipulation. 
 
