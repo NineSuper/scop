@@ -52,8 +52,6 @@ Compilez le projet :
 - Touche dédiée : Appliquer/retirer la texture
 - Esc : Quitter l'application
 
-Happy coding! 🚀✨
-
 ## 📝 Auteur
 
 - 🎫 [@NineSuper](https://www.github.com/NineSuper)
