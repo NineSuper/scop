@@ -26,7 +26,6 @@ Ce projet permet de se familiariser avec les concepts de rendu 3D en utilisant d
 Assurez-vous d'avoir les bibliothèques graphiques nécessaires installées sur votre système.
 
 ```bash
-# Exemple pour installer la MinilibX
 sudo apt-get install libx11-dev libxext-dev libbsd-dev libgl1-mesa-dev libsdl2-ttf-dev
 ```
 
