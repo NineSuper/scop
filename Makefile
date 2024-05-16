@@ -77,7 +77,7 @@ all: $(NAME)
 # all: $(NAME) norminette
 
 leak: comp_start $(OBJ)
-	$(CC) -fsanitize=address -fsanitize=memory -g $(LIB) $(OBJ) -o $(NAME) $(LFLAGS)
+	$(CC) -fsanitize=address -g $(LIB) $(OBJ) -o $(NAME) $(LFLAGS)
 	echo "\n"
 	@$(EXE_READY)	
 
