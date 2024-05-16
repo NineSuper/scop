@@ -6,13 +6,13 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:43:49 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/08 16:58:49 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/16 22:51:13 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
 
-void	free_tab(char **tab)
+void	free_tab(void **tab)
 {
 	int	i;
 
@@ -22,21 +22,19 @@ void	free_tab(char **tab)
 	free(tab);
 }
 
-void    ft_free_mlx(t_win *win)
+void	ft_free_sdl(t_win *win, t_master *s_m)
 {
-    if (win->win)
-		mlx_destroy_window(win->mlx, win->win);
-	if (win->mlx)
+	if (win->window)
 	{
-		mlx_destroy_display(win->mlx);
-		mlx_loop_end(win->mlx);
+		SDL_DestroyWindow(win->window);
+		free_font(&s_m->font);
+		SDL_Quit();
 	}
-    free(win->mlx);
 }
 
 void	ft_free_all(t_master *s_m)
 {
-	ft_free_mlx(&s_m->win);
+	ft_free_sdl(&s_m->win, s_m);
 	free(s_m);
 	exit (0);
 }

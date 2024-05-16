@@ -27,7 +27,7 @@ Assurez-vous d'avoir les bibliothèques graphiques nécessaires installées sur 
 
 ```bash
 # Exemple pour installer la MinilibX
-sudo apt-get install libx11-dev libxext-dev libbsd-dev libgl1-mesa-dev
+sudo apt-get install libx11-dev libxext-dev libbsd-dev libgl1-mesa-dev libsdl2-ttf-dev
 ```
 
 ## 🗳️ Installation
