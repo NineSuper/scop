@@ -48,7 +48,7 @@ Compilez le projet :
 
 ## ⌨️ Contrôles
 - W/A/S/D : Déplacements sur les axes X, Y, Z
-- Touche dédiée : Appliquer/retirer la texture
+- G : Appliquer/retirer la texture
 - Esc : Quitter l'application
 
 ## 📝 Auteur
