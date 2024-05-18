@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:43:49 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/18 06:38:58 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/18 07:22:29 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	ft_free_obj(t_obj *object)
 {
 	if (object->file)
 		free(object->file);
+	if (object->fd)
+		close(object->fd);
 }
 
 void	ft_free_sdl(t_win *win, t_master *s_m)
