@@ -22,8 +22,8 @@ HEADER_FILE = utils.h lib/ft_printf/ft_printf.h lib/lib/libft.h lib/gnl/get_next
 
 CC = gcc
 
-# FLAGS = -Wall -Werror -Wextra
-FLAGS =
+FLAGS = -Wall -Werror -Wextra
+# FLAGS =
 
 # ------------------------------ Couleurs ------------------------------
 

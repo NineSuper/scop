@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:44:59 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/16 16:45:29 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/18 05:48:02 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ s_font  *get_font(s_font *font, char *name)
 
     while (temp)
     {
-        if (!strcmp(temp->name, name))
+        if (!ft_strncmp(temp->name, name, strlen(name)))
             return (temp);
         temp = temp->next;
     }
@@ -91,7 +91,7 @@ void	init_font(s_font *font)
     font_lib(font);
 }
 
-//*	Fonction ajoute un font en fin de liste (struct font->next)
+// *	Fonction ajoute un font en fin de liste (struct font->next)
 
 s_font	*font_next(s_font *lst)
 {
