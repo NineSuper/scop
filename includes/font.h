@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:41:18 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/18 07:33:27 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/18 08:13:58 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "include.h"
 # include <SDL2/SDL_ttf.h>
 
-typedef	struct  t_text
+typedef	struct  s_text
 {
 	SDL_Color		color;
 	SDL_Surface		*textSurface;
@@ -32,21 +32,21 @@ typedef	struct  t_text
 	SDL_Rect		textRect;
 }	s_text;
 
-typedef struct t_font
+typedef struct s_font
 {
 	int				id;
 	char			*name;
 	TTF_Font		*font;
-	struct t_font	*next;
-}	s_font;
+	struct s_font	*next;
+}	t_font;
 
 
 //			FUNCTION		//
-void    font_create(s_font *font, char *file);
-void    font_lib(s_font *font);
-void	init_font(s_font *font);
-s_font	*font_next(s_font *lst);
-s_font  *get_font(s_font *font, char *name);
-void	free_font(s_font *lst);
+void    font_create(t_font *font, char *file);
+void    font_lib(t_font *font);
+void	init_font(t_font *font);
+t_font	*font_next(t_font *lst);
+t_font  *get_font(t_font *font, char *name);
+void	free_font(t_font *lst);
 
 #endif

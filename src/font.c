@@ -6,15 +6,15 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:44:59 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/18 05:48:02 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/18 08:14:28 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/include.h"
 
-void    font_create(s_font *font, char *file)
+void    font_create(t_font *font, char *file)
 {
-    s_font  *temp;
+    t_font  *temp;
 
     if (!file)
     {
@@ -34,9 +34,9 @@ void    font_create(s_font *font, char *file)
     printf("Font loaded successfully: %s ✅\n", temp->name);
 }
 
-s_font  *get_font(s_font *font, char *name)
+t_font  *get_font(t_font *font, char *name)
 {
-    s_font  *temp = font->next;
+    t_font  *temp = font->next;
 
     while (temp)
     {
@@ -47,10 +47,10 @@ s_font  *get_font(s_font *font, char *name)
     return (NULL);
 }
 
-void	free_font(s_font *lst)
+void	free_font(t_font *lst)
 {
-    s_font	*current;
-    s_font	*next;
+    t_font	*current;
+    t_font	*next;
 
 	printf("\n\t[Free font 🖍️ ]\n\n");
 	if (!lst)
@@ -70,7 +70,7 @@ void	free_font(s_font *lst)
     }
 }
 
-void    font_lib(s_font *font)
+void    font_lib(t_font *font)
 {
     printf("\n\t[Loading font 🖍️ ]\n\n");
     font_create(font, ARIAL);
@@ -83,7 +83,7 @@ void    font_lib(s_font *font)
     font_create(font, "TEST_ERROR");
 }
 
-void	init_font(s_font *font)
+void	init_font(t_font *font)
 {
 	TTF_Init();
     font->next = NULL;
@@ -93,18 +93,18 @@ void	init_font(s_font *font)
 
 // *	Fonction ajoute un font en fin de liste (struct font->next)
 
-s_font	*font_next(s_font *lst)
+t_font	*font_next(t_font *lst)
 {
-	s_font	*new;
-	s_font	*temp;
+	t_font	*new;
+	t_font	*temp;
 
 	if (!lst)
 		return (NULL);
 	temp = lst;
 	while (temp->next)
 		temp = temp->next;
-	new = (s_font *)ft_calloc(sizeof(s_font), 1);
-	*new = (s_font){.font = NULL, .id = temp->id + 1, .name = NULL};
+	new = (t_font *)ft_calloc(sizeof(t_font), 1);
+	*new = (t_font){.font = NULL, .id = temp->id + 1, .name = NULL};
 	if (!new)
 		return (NULL);
 	new->next = NULL;

@@ -6,13 +6,13 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:43:49 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/18 07:22:29 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/18 07:48:20 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
 
-void	free_tab(void **tab)
+void	free_tab(char **tab)
 {
 	int	i;
 
@@ -24,10 +24,12 @@ void	free_tab(void **tab)
 
 void	ft_free_obj(t_obj *object)
 {
-	if (object->file)
-		free(object->file);
+	if (object->dir)
+		free(object->dir);
 	if (object->fd)
 		close(object->fd);
+	if (object->file)
+		free_tab(object->file);
 }
 
 void	ft_free_sdl(t_win *win, t_master *s_m)

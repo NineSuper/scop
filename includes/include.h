@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/18 07:25:17 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/18 08:14:41 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include "font.h"
+# include "object.h"
 
 /*		String		*/
 # define TITLE "SCOP"
@@ -49,20 +50,6 @@
 #  define HEIGHT 540
 # endif
 
-typedef struct s_coods
-{
-	int	x;
-	int	y;
-	int	w;
-	int	h;
-}	t_coords;
-
-typedef struct	s_obj
-{
-	char	*file;
-	int		fd;
-}	t_obj;
-
 typedef	struct s_win
 {
 	SDL_GLContext	context;
@@ -76,7 +63,7 @@ typedef	struct s_win
 typedef	struct s_master
 {
     t_win	win;   
-	s_font	font;
+	t_font	font;
 	t_obj	object;
 	bool	quit;
 }	t_master;
@@ -86,10 +73,10 @@ typedef	struct s_master
 /*		INIT	*/
 void	ft_init_window(t_master *s_m);
 void	ft_sdl_loop(t_master *s_m);
-int		ft_open_obj(t_obj *object);
+int		ft_parse_obj(t_obj *object);
 /*		FREE	*/
 void	ft_free_all(t_master *s_m);
-void	free_tab(void **tab);
+void	free_tab(char **tab);
 void	ft_free_obj(t_obj *object);
 
 //			FUNCTION		//

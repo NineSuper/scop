@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:00:57 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/18 07:25:24 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/18 08:15:24 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	ft_args(int argc, char **argv, t_master *s_m)
 		{
 			if (ft_strnstr(argv[1] + ft_strlen(argv[1] + 4), ".obj", 4))
 			{
-				s_m->object.file = ft_strdup(argv[1]);
-				ft_printf("%s[%s]%s\n", C_GREEN, s_m->object.file, C_NONE);
+				s_m->object.dir = ft_strdup(argv[1]);
+				ft_printf("%s[%s]%s\n", C_GREEN, s_m->object.dir, C_NONE);
 				return (0);
 			}
 		}
@@ -48,7 +48,7 @@ int	main(int argc, char **argv)
     s_m = ft_calloc(1, sizeof(t_master));
     if (!s_m)
 		 return (ft_printf("%s%s%s\n", C_RED, E_ALLOC, C_NONE));
-	if (ft_args(argc, argv, s_m) || ft_open_obj(&s_m->object))
+	if (ft_args(argc, argv, s_m) || ft_parse_obj(&s_m->object))
 		ft_free_all(s_m);
 	// ft_init_window(s_m);
 	// init_font(&s_m->font);
