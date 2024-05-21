@@ -10,19 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #ifndef FONT_H
 # define  FONT_H
 
-/*	Fonts	*/
+/	Fonts
 # define ARIAL "assets/fonts/arial.ttf"
 # define CARNIVAL "assets/fonts/Carnival.ttf"
 # define FRANCHISE "assets/fonts/Franchise.ttf"
 # define MAGIC_RETRO "assets/fonts/Magic_retro.ttf"
 # define NAMECAT "assets/fonts/Namecat.ttf"
 # define SUPER_RETRO "assets/fonts/Super_retro.ttf"
-/*	Includes	*/
+/	Includes	
 # include "include.h"
 # include <SDL2/SDL_ttf.h>
+
 
 typedef	struct  s_text
 {
@@ -41,7 +43,7 @@ typedef struct s_font
 }	t_font;
 
 
-//			FUNCTION		//
+/			FUNCTION
 void    font_create(t_font *font, char *file);
 void    font_lib(t_font *font);
 void	init_font(t_font *font);
@@ -50,3 +52,4 @@ t_font  *get_font(t_font *font, char *name);
 void	free_font(t_font *lst);
 
 #endif
+*/

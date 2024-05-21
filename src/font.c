@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 # include "../includes/include.h"
 
 void    font_create(t_font *font, char *file)
@@ -111,3 +112,4 @@ t_font	*font_next(t_font *lst)
 	temp->next = new;
 	return (new);
 }
+*/

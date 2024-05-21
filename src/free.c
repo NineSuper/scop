@@ -37,9 +37,9 @@ void	ft_free_sdl(t_win *win, t_master *s_m)
 	if (win->window)
 	{
 		SDL_DestroyWindow(win->window);
-		free_font(&s_m->font);
 		SDL_Quit();
 	}
+	(void)s_m;
 }
 
 void	ft_free_all(t_master *s_m)

@@ -7,18 +7,19 @@ MLX_PATH=lib/mlx/
 INC_SRCH_PATH :=
 INC_SRCH_PATH += -I includes/ -I$(MLX_PATH)
 
-LFLAGS = -lglfw -lGL -lm -lSDL2 -lSDL2main -lGLU -lglut -lSDL2_ttf
+LFLAGS = -lglfw -lGL -lm -lSDL2 -lSDL2main -lGLU -lglut
 
 NAME = Scop
 
 SRC_DIR = src
 OBJ_DIR = obj
+HEADER_DIR = includes
 
 SRC = $(wildcard $(SRC_DIR)/*.c) $(wildcard $(SRC_DIR)/*/*.c)
 OBJ = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 
 LIB = lib/ft_printf/*.c lib/libft/*.c lib/gnl/*.c
-HEADER_FILE = utils.h lib/ft_printf/ft_printf.h lib/lib/libft.h lib/gnl/get_next_line.h
+HEADER_FILE = $(wildcard $(HEADER_DIR)/*.h) lib/ft_printf/ft_printf.h lib/libft/libft.h lib/gnl/get_next_line.h
 
 CC = gcc
 
@@ -85,7 +86,7 @@ norminette:
 	$(NORM_LIB)
 	norminette $(LIB)
 	$(NORM)
-	norminette *.c
+	norminette $(SRC)
 	$(NORM_H)
 	norminette -R checkDefine $(HEADER_FILE)
 	echo "\n"

@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:31:22 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/18 08:21:52 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/21 13:52:28 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ void	ft_read_obj(t_obj *object)
 void	ft_init_obj(t_obj *object)
 {
 	object->vertices = NULL;
-    object->normals = NULL;
-    object->faces = NULL;
-    object->nb_vertices = 0;
-    object->nb_normals = 0;
-    object->nb_faces = 0;
+	object->normals = NULL;
+	object->faces = NULL;
+	object->nb_vertices = 0;
+	object->nb_normals = 0;
+	object->nb_faces = 0;
 }
 
 int	ft_parse_obj(t_obj *object)

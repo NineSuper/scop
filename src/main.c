@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:00:57 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/18 08:15:24 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:09:50 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 	TODO	Créer des objets 3D sur blender
 	TODO	Parser les objets
 	TODO	Faire une fenêtre avec SDL2
-	*	Apprendre à regarder les leaks sans voir les erreurs génerés automatiquement via OpenGL
+	*	Apprendre à regarder les leaks sans voir les erreurs génerés \
+		automatiquement via OpenGL
 	*	Faire des évènements sur la fenêtre
 	*	Mettre un cube via OpenGL sur la fenêtre SDL2 
 	TODO	Afficher un cube fait sur blender
@@ -43,18 +44,18 @@ int	ft_args(int argc, char **argv, t_master *s_m)
 
 int	main(int argc, char **argv)
 {
-    t_master	*s_m;
+	t_master	*s_m;
 
-    s_m = ft_calloc(1, sizeof(t_master));
-    if (!s_m)
-		 return (ft_printf("%s%s%s\n", C_RED, E_ALLOC, C_NONE));
+	s_m = ft_calloc(1, sizeof(t_master));
+	if (!s_m)
+		return (ft_printf("%s%s%s\n", C_RED, E_ALLOC, C_NONE));
 	if (ft_args(argc, argv, s_m) || ft_parse_obj(&s_m->object))
 		ft_free_all(s_m);
-	// ft_init_window(s_m);
-	// init_font(&s_m->font);
-	// ft_sdl_loop(s_m);
-    ft_free_all(s_m);
-    return (0);
+	ft_init_window(s_m);
+	ft_sdl_loop(s_m);
+	ft_free_all(s_m);
+	return (0);
 }
 
+//	init_font(&s_m->font);
 // ft_test((t_win){.height = 5});

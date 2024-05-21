@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/18 08:14:41 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:12:06 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,19 @@
 #  define HEIGHT 540
 # endif
 
-typedef	struct s_win
+typedef struct s_win
 {
 	SDL_GLContext	context;
 	SDL_Window		*window;
-	SDL_Event 		event;
-    char			*title;
-    int				height;
-    int				width;
-}   t_win;
+	SDL_Event		event;
+	char			*title;
+	int				height;
+	int				width;
+}	t_win;
 
-typedef	struct s_master
+typedef struct s_master
 {
-    t_win	win;   
-	t_font	font;
+	t_win	win;
 	t_obj	object;
 	bool	quit;
 }	t_master;
