@@ -3,72 +3,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
-#define MAX_VERTICES 1000
-#define MAX_FACES 1000
-
-typedef struct {
-    float x, y, z;
-} Vertex;
-
-typedef struct {
-    int vIdx[3];
-} Face;
-
-Vertex vertices[MAX_VERTICES];
-Face faces[MAX_FACES];
-int vertexCount = 0, faceCount = 0;
 
 float angleX = 0.0f;
 float angleY = 0.0f;
 float zoom = 1.0f;
 int lastMouseX, lastMouseY;
 bool mouseDown = false;
-
-void parseObjFile(const char* filename) {
-    FILE* file = fopen(filename, "r");
-    if (!file) {
-        fprintf(stderr, "Cannot open file %s\n", filename);
-        exit(1);
-    }
-
-    char line[128];
-    while (fgets(line, sizeof(line), file)) {
-        if (strncmp(line, "v ", 2) == 0) {
-            if (vertexCount >= MAX_VERTICES) {
-                fprintf(stderr, "Too many vertices\n");
-                exit(1);
-            }
-            Vertex vertex;
-            sscanf(line + 2, "%f %f %f", &vertex.x, &vertex.y, &vertex.z);
-            vertices[vertexCount++] = vertex;
-        } else if (strncmp(line, "f ", 2) == 0) {
-            if (faceCount >= MAX_FACES) {
-                fprintf(stderr, "Too many faces\n");
-                exit(1);
-            }
-            Face face;
-            int matches = sscanf(line + 2, "%d %d %d",
-                                 &face.vIdx[0], &face.vIdx[1], &face.vIdx[2]);
-            if (matches != 3) {
-                fprintf(stderr, "Error reading face data\n");
-                exit(1);
-            }
-            for (int i = 0; i < 3; i++) {
-                if (face.vIdx[i] < 1 || face.vIdx[i] > vertexCount) {
-                    fprintf(stderr, "Invalid vertex index %d in face definition\n", face.vIdx[i]);
-                    exit(1);
-                }
-                face.vIdx[i]--; // Convert 1-based index to 0-based index
-            }
-            faces[faceCount++] = face;
-        }
-    }
-
-    fclose(file);
-}
 
 void handleEvents() {
     SDL_Event event;
@@ -109,15 +53,50 @@ void handleEvents() {
     }
 }
 
-void drawModel() {
-    glBegin(GL_TRIANGLES);
+void drawCube() {
+    glBegin(GL_QUADS);
 
-    for (int i = 0; i < faceCount; i++) {
-        for (int j = 0; j < 3; j++) {
-            int vIdx = faces[i].vIdx[j];
-            glVertex3f(vertices[vIdx].x, vertices[vIdx].y, vertices[vIdx].z);
-        }
-    }
+    // Front face
+    glColor3f(1.0f, 0.0f, 0.0f); // Red
+    glVertex3f(-1.0f, -1.0f, 1.0f);
+    glVertex3f(1.0f, -1.0f, 1.0f);
+    glVertex3f(1.0f, 1.0f, 1.0f);
+    glVertex3f(-1.0f, 1.0f, 1.0f);
+
+    // Back face
+    glColor3f(0.0f, 1.0f, 0.0f); // Green
+    glVertex3f(-1.0f, -1.0f, -1.0f);
+    glVertex3f(-1.0f, 1.0f, -1.0f);
+    glVertex3f(1.0f, 1.0f, -1.0f);
+    glVertex3f(1.0f, -1.0f, -1.0f);
+
+    // Top face
+    glColor3f(0.0f, 0.0f, 1.0f); // Blue
+    glVertex3f(-1.0f, 1.0f, -1.0f);
+    glVertex3f(-1.0f, 1.0f, 1.0f);
+    glVertex3f(1.0f, 1.0f, 1.0f);
+    glVertex3f(1.0f, 1.0f, -1.0f);
+
+    // Bottom face
+    glColor3f(1.0f, 1.0f, 0.0f); // Yellow
+    glVertex3f(-1.0f, -1.0f, -1.0f);
+    glVertex3f(1.0f, -1.0f, -1.0f);
+    glVertex3f(1.0f, -1.0f, 1.0f);
+    glVertex3f(-1.0f, -1.0f, 1.0f);
+
+    // Right face
+    glColor3f(1.0f, 0.0f, 1.0f); // Magenta
+    glVertex3f(1.0f, -1.0f, -1.0f);
+    glVertex3f(1.0f, 1.0f, -1.0f);
+    glVertex3f(1.0f, 1.0f, 1.0f);
+    glVertex3f(1.0f, -1.0f, 1.0f);
+
+    // Left face
+    glColor3f(0.0f, 1.0f, 1.0f); // Cyan
+    glVertex3f(-1.0f, -1.0f, -1.0f);
+    glVertex3f(-1.0f, -1.0f, 1.0f);
+    glVertex3f(-1.0f, 1.0f, 1.0f);
+    glVertex3f(-1.0f, 1.0f, -1.0f);
 
     glEnd();
 }
@@ -130,19 +109,14 @@ void display(SDL_Window* window) {
     glRotatef(angleY, 0.0f, 1.0f, 0.0f);
     glScalef(zoom, zoom, zoom);
 
-    drawModel();
+    drawCube();
 
     SDL_GL_SwapWindow(window);
 }
 
 int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        fprintf(stderr, "Usage: %s <path_to_obj_file>\n", argv[0]);
-        return 1;
-    }
-
     SDL_Init(SDL_INIT_VIDEO);
-    SDL_Window* window = SDL_CreateWindow("SDL2/OpenGL 3D Model Viewer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+    SDL_Window* window = SDL_CreateWindow("SDL2/OpenGL Cube Example", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
     SDL_GLContext context = SDL_GL_CreateContext(window);
 
     glEnable(GL_DEPTH_TEST);
@@ -151,8 +125,6 @@ int main(int argc, char* argv[]) {
     glLoadIdentity();
     gluPerspective(45.0f, (GLfloat)SCREEN_WIDTH / (GLfloat)SCREEN_HEIGHT, 0.1f, 100.0f);
     glMatrixMode(GL_MODELVIEW);
-
-    parseObjFile(argv[1]);
 
     bool quit = false;
     while (!quit) {
