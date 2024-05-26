@@ -1,4 +1,4 @@
-# SCOP - Mini-projet d'Infographie
+# SCOP
 
 
 Bienvenue dans SCOP 👾 Un mini-projet passionnant de l'école 42 dédié à l'infographie et au rendu 3D ! 
@@ -15,11 +15,11 @@ Ce projet permet de se familiariser avec les concepts de rendu 3D en utilisant d
 
 ## 🛠️ Fonctionnalités
 
-- [ ] Affichage d'objets 3D à partir de fichiers .obj
-- [ ] Rendu en perspective avec rotation autour de l'axe de symétrie principal
+- [🚧] Parsing des fichiers .obj pour obtenir le rendu demandé
+- [🚧] Affichage d'objets 3D à partir de fichiers .obj
+- [ ] Rendu en perspective avec rotation autour de l'object
 - [ ] Gestion des déplacements sur les trois axes
-- [ ] Application de textures sur l'objet avec transition douce
-- [ ] Parsing des fichiers .obj pour obtenir le rendu demandé
+- [ ] Application de textures sur l'objet avec légère transition
 
 ## 🔧 Prérequis
 
@@ -43,7 +43,7 @@ make
 
 Compilez le projet :
 ```
-./Scop
+./Scop <file>.obj
 ```
 
 ## ⌨️ Contrôles
