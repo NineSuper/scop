@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:00:57 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/21 14:09:50 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/27 00:50:54 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_args(int argc, char **argv, t_master *s_m)
 			}
 		}
 	}
-	ft_printf("%s%s%s\n", C_RED, "./Scop <file>.obj", C_NONE);
+	ft_printf("%s%s%s\n", C_RED, B_ARG, C_NONE);
 	return (1);
 }
 
@@ -57,5 +57,4 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-//	init_font(&s_m->font);
 // ft_test((t_win){.height = 5});

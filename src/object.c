@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:31:22 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/21 13:52:28 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/26 22:14:32 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ int	ft_parse_obj(t_obj *object)
 	if (object->fd < 0 || read(object->fd, 0, 0) < 0)
 		return (ft_printf("%s%s%s%s\n", C_RED, C_OPEN, object->dir, C_NONE));
 	ft_read_obj(object);
+	// une fois fini free(object->file);
 	return (0);
 }
