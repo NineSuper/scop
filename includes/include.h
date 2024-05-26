@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/21 14:12:06 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/27 00:50:48 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include "font.h"
 # include "object.h"
 
 /*		String		*/
@@ -35,6 +34,7 @@
 # define E_SDL_INIT "Error: SDL initialization failed."
 # define E_WIN      "Error: Window initialization failed."
 # define C_OPEN      "Error: Can\'t open: "
+# define B_ARG		"./Scop <file>.obj"
 /*		Texture		*/
 
 /*		Color		*/

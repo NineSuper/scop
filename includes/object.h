@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 08:06:40 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/21 14:13:35 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/26 13:51:31 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,12 @@
 /*	Includes	*/
 # include "include.h"
 
-typedef struct s_vertex
+typedef struct s_coords
 {
 	float	x;
 	float	y;
 	float	z;
-}	t_vertex;
-
-typedef struct s_normal
-{
-	float	x;
-	float	y;
-	float	z;
-}	t_normal;
+}	t_coords;
 
 typedef struct s_face
 {
@@ -38,8 +31,8 @@ typedef struct s_face
 
 typedef struct s_obj
 {
-	t_vertex	*vertices;
-	t_normal	*normals;
+	t_coords	*vertices;
+	t_coords	*normals;
 	t_face		*faces;
 	char		**file;
 	char		*dir;
