@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/27 00:50:48 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:50:18 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include "object.h"
+# include "keyboard.h"
 
 /*		String		*/
 # define TITLE "SCOP"
@@ -43,11 +44,11 @@
 # define C_NONE "\033[0m"
 /*		Screen Size	 */
 # ifndef WIDTH
-#  define WIDTH 960
+#  define WIDTH 1280
 # endif
 
 # ifndef HEIGHT
-#  define HEIGHT 540
+#  define HEIGHT 720
 # endif
 
 typedef struct s_win
@@ -69,11 +70,11 @@ typedef struct s_master
 
 //			FUNCTION		//
 
-/*		INIT	*/
+//	INIT
 void	ft_init_window(t_master *s_m);
 void	ft_sdl_loop(t_master *s_m);
 int		ft_parse_obj(t_obj *object);
-/*		FREE	*/
+//	FREE
 void	ft_free_all(t_master *s_m);
 void	free_tab(char **tab);
 void	ft_free_obj(t_obj *object);

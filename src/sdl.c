@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:27:48 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/27 00:57:11 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:44:40 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 void	draw_square(void)
 {
-	glColor3f(1.0f, 2.0f, 1.0f);
 	glBegin(GL_QUADS);
+	glColor3f(1.0f, 2.0f, 1.0f);
 	glVertex2f(-2.5f, -0.5f);
 	glVertex2f(1.5f, -0.5f);
 	glVertex2f(0.5f, 0.5f);

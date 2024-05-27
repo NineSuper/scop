@@ -44,7 +44,7 @@ NO_COLOR        =       \033[0m
 
 HEADER_NAME		=		$(HEADER_TOP) $(HEADER_TOP_MID) $(HEADER_MID)$(HEADER_BOT)
 
-HEADER_COMP     =       echo "\n👾 $(BOLD_PURPLE)$(NAME) $(NO_COLOR)$(BOLD)by $(BOLD_RED)tde-los-\n\n"
+HEADER_COMP     =       echo "\n👽 $(BOLD_PURPLE)$(NAME) $(NO_COLOR)$(BOLD)by $(BOLD_RED)tde-los-\n\n"
 
 MLX_READY		=		echo "\n\n📥 $(BOLD)Compilation de la $(BOLD_YELLOW)Mlx$(NO_COLOR) $(BOLD)reussi !$(NO_COLOR)\n"
 
