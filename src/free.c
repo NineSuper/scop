@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:43:49 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/26 22:13:55 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/28 16:41:08 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@ void	free_tab(char **tab)
 	while (tab[++i])
 		free(tab[i]);
 	free(tab);
-}
-
-void	ft_free_obj(t_obj *object)
-{
-	if (object->dir)
-		free(object->dir);
-	if (object->fd)
-		close(object->fd);
-	if (object->file)
-		free_tab(object->file);
 }
 
 void	ft_free_sdl(t_win *win, t_master *s_m)

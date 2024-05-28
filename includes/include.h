@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/27 16:50:18 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/28 16:13:45 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ int		ft_parse_obj(t_obj *object);
 void	ft_free_all(t_master *s_m);
 void	free_tab(char **tab);
 void	ft_free_obj(t_obj *object);
-
+// PARSING
+void	ft_read_file(t_obj *object);
 //			FUNCTION		//
 
 #endif
