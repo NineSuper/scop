@@ -6,13 +6,13 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:29:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/27 16:40:36 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/28 13:55:35 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/keyboard.h"
 
-void	ft_keyboard()
+void	ft_keyboard(void)
 {
 	return ;
 }

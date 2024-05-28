@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 08:06:40 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/26 13:51:31 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:02:15 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,32 @@ typedef struct s_coords
 	float	z;
 }	t_coords;
 
+typedef struct s_tex_coords
+{
+	float	u;
+	float	v;
+}	t_tex_coords;
+
 typedef struct s_face
 {
-	int	vertex_indices[3];
-	int	normal_indices[3];
+	unsigned int	vertex[3];
+	unsigned int	vertex_texture[3];
+	unsigned int	vertex_normal[3];
 }	t_face;
 
 typedef struct s_obj
 {
-	t_coords	*vertices;
-	t_coords	*normals;
-	t_face		*faces;
-	char		**file;
-	char		*dir;
-	int			fd;
-	int			nb_vertices;
-	int			nb_normals;
-	int			nb_faces;
+	t_coords		**vertices;
+	t_tex_coords	**tex_coords;
+	t_coords		**normals;
+	t_face			**faces;
+	char			**file;
+	char			*dir;
+	int				fd;
+	int				nb_vertex;
+	int				nb_normal;
+	int				nb_tex_coords;
+	int				nb_faces;
 }	t_obj;
 
 #endif
