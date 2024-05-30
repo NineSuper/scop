@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:27:48 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 21:19:21 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 22:39:52 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	ft_face_draw(int num)
 		glBegin(GL_QUADS);
 	if (num == 5)
 		glBegin(GL_POLYGON);
-	printf("%d\n", num);
 }
 
 void	draw_object(t_obj *obj)

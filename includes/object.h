@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 08:06:40 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 20:28:09 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 22:27:21 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_obj
 	int				nb_normal;
 	int				nb_tex_coords;
 	int				nb_faces;
+	GLuint			texture_id;
 }	t_obj;
 
 #endif
