@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:27:48 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 20:35:17 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 21:19:21 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,31 +50,40 @@ void	ft_camera(t_cam *cam)
 	glRotatef(cam->yrot, 0.0f, 1.0f, 0.0f);
 }
 
+void	ft_face_draw(int num)
+{
+	if (num == 3)
+		glBegin(GL_TRIANGLES);
+	if (num == 4)
+		glBegin(GL_QUADS);
+	if (num == 5)
+		glBegin(GL_POLYGON);
+	printf("%d\n", num);
+}
+
 void	draw_object(t_obj *obj)
 {
-	t_face	*face_list;
-	int		i;
-
-	face_list = obj->faces->next;
-	glEnable(GL_NORMALIZE);
-	glBegin(GL_POLYGON);
-	// glBegin(GL_LINES);
-	while (face_list)
-	{
-		glColor4fv(face_list->color);
-		i = -1;
-		while (++i < 3)
-		{
-			if (obj->nb_normal > 0)
-				glNormal3fv(obj->glpos->normals[face_list->vertex_normal[i] - 1]);
-			if (obj->nb_tex_coords > 0)
-				glTexCoord2fv(obj->glpos->textures[face_list->vertex_texture[i] - 1]);
-			glVertex3fv(obj->glpos->vertices[face_list->vertex[i] - 1]);
-			// printf("%f %f %f\n", obj->glpos->vertices[face_list->vertex[0]][0], obj->glpos->vertices[face_list->vertex[0]][1], obj->glpos->vertices[face_list->vertex[0]][2]);
-		}
-		face_list = face_list->next;
-	}
-	glEnd();
+    t_face	*face_list;
+    int		i;
+    
+    face_list = obj->faces->next;
+    glEnable(GL_NORMALIZE);
+    while (face_list)
+    {
+        glColor4fv(face_list->color);
+        ft_face_draw(face_list->num_vertices);
+        i = -1;
+        while (++i < face_list->num_vertices)
+        {
+            if (obj->nb_normal > 0)
+                glNormal3fv(obj->glpos->normals[face_list->vertex_normal[i] - 1]);
+            if (obj->nb_tex_coords > 0)
+                glTexCoord2fv(obj->glpos->textures[face_list->vertex_texture[i] - 1]);
+            glVertex3fv(obj->glpos->vertices[face_list->vertex[i] - 1]);
+        }
+        glEnd();
+        face_list = face_list->next;
+    }
 }
 
 void	ft_sdl_loop(t_master *s_m)
@@ -87,7 +96,7 @@ void	ft_sdl_loop(t_master *s_m)
 			if (s_m->win.event.type == SDL_QUIT)
 				s_m->quit = true;
 			else if (s_m->win.event.type == SDL_KEYDOWN)
-				printf( "Key press detected\n" );
+				printf("Key press detected\n");
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		ft_camera(&s_m->cam);
 		draw_object(&s_m->object);
