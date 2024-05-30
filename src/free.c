@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:43:49 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/28 16:41:08 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 13:48:30 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,16 @@ void	free_tab(char **tab)
 	int	i;
 
 	i = -1;
+	if (!tab)
+	{
+		ft_printf("\n\n\nOH\n\n\n");
+		return ;
+	}
 	while (tab[++i])
-		free(tab[i]);
+	{
+		if (tab[i])
+			free(tab[i]);
+	}
 	free(tab);
 }
 

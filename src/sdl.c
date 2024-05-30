@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:27:48 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/27 16:44:40 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:58:31 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,47 @@
 	*	Mettre un cube via OpenGL sur la fenêtre SDL2 
 	TODO	Afficher un cube fait sur blender
 	TODO	Faire un HUD
+
+	gluPerspective(70.0f, 1.0f * WIDTH / HEIGHT, 1.0f, 100 * 1.0f); // FOV
+
+    gluLookAt(5.0, 5.0, 5.0, // Position de la caméra
+            0.0, 0.0, 0.0, // Point que la caméra regarde
+            0.0, 1.0, 0.0); // Direction de l'axe
 */
 
-void	draw_square(void)
+void setup_camera()
 {
-	glBegin(GL_QUADS);
-	glColor3f(1.0f, 2.0f, 1.0f);
-	glVertex2f(-2.5f, -0.5f);
-	glVertex2f(1.5f, -0.5f);
-	glVertex2f(0.5f, 0.5f);
-	glVertex2f(-0.5f, 0.5f);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(70.0f, 1.0f * WIDTH / HEIGHT, 1.0f, 100 * 1.0f);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    gluLookAt(5.0, 5.0, 5.0,
+              0.0, 0.0, 0.0,
+              0.0, 1.0, 0.0);
+}
+
+void	draw_object(t_obj *obj)
+{
+	t_face	*face_list;
+	int		i;
+
+	face_list = obj->faces->next;
+	setup_camera();
+	glBegin(GL_TRIANGLES);
+	while (face_list)
+	{
+		i = -1;
+		while (++i < 3)
+		{
+			if (obj->nb_normal > 0)
+				glNormal3fv(obj->glpos->normals[face_list->vertex_normal[i] - 1]);
+			if (obj->nb_tex_coords > 0)
+				glTexCoord2fv(obj->glpos->textures[face_list->vertex_texture[i] - 1]);
+			glVertex3fv(obj->glpos->vertices[face_list->vertex[i] - 1]);
+		}
+		face_list = face_list->next;
+	}
 	glEnd();
 }
 
@@ -44,8 +75,10 @@ void	ft_sdl_loop(t_master *s_m)
 		while (SDL_PollEvent(&s_m->win.event))
 			if (s_m->win.event.type == SDL_QUIT)
 				s_m->quit = true;
-		glClear(GL_COLOR_BUFFER_BIT);
-		draw_square();
+			else if (s_m->win.event.type == SDL_KEYDOWN)
+				printf( "Key press detected\n" );
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		draw_object(&s_m->object);
 		SDL_GL_SwapWindow(s_m->win.window);
 	}
 	SDL_GL_DeleteContext(s_m->win.context);

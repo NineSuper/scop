@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:13:03 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 10:37:31 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 13:50:45 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,13 +118,17 @@ void	ft_read_file(t_obj *object)
 	i = 0;
 	while (object->file[++i])
 	{
-		if (!ft_strncmp(object->file[i], "v ", 2))
+		if (!ft_strncmp(object->file[i], "v ", 2) && ++object->nb_vertex)
 			ft_scanf_vertices(object->file[i], object->vertices);
-		else if (!ft_strncmp(object->file[i], "vn ", 3))
+		else if (!ft_strncmp(object->file[i], "vn ", 3) && ++object->nb_normal)
 			ft_scanf_normal(object->file[i], object->normals);
-		else if (!ft_strncmp(object->file[i], "f ", 2))
+		else if (!ft_strncmp(object->file[i], "f ", 2) && ++object->nb_faces)
 			ft_scanf_face(object->file[i], object->faces);
-		else if (!ft_strncmp(object->file[i], "vt ", 3))
+		else if (!ft_strncmp(object->file[i], "vt ", 3) && \
+			++object->nb_tex_coords)
 			ft_scanf_tex(object->file[i], object->tex_coords);
 	}
+	free_tab(object->file);
+	object->file = NULL;
+	printf("[V][%d] [VN][%d] [F][%d] [VT][%d]\n", object->nb_vertex, object->nb_normal, object->nb_faces, object->nb_tex_coords);
 }

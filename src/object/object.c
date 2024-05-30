@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:31:22 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 10:37:30 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:07:51 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,3 @@ int	ft_parse_obj(t_obj *object)
 	ft_read_file(object);
 	return (0);
 }
-// une fois fini free(object->file);

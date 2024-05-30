@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/28 16:13:45 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:39:03 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,12 @@ typedef struct s_master
 void	ft_init_window(t_master *s_m);
 void	ft_sdl_loop(t_master *s_m);
 int		ft_parse_obj(t_obj *object);
+void	init_glpos(t_obj *obj);
 //	FREE
 void	ft_free_all(t_master *s_m);
 void	free_tab(char **tab);
 void	ft_free_obj(t_obj *object);
+void	free_glfloat(GLfloat **vertices, int nb_vertices);
 // PARSING
 void	ft_read_file(t_obj *object);
 //			FUNCTION		//

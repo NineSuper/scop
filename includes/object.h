@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 08:06:40 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 10:16:05 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:10:39 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,20 @@ typedef struct s_face
 	struct s_face	*next;
 }	t_face;
 
+typedef struct s_glpos
+{
+	GLfloat	**vertices;
+	GLfloat	**textures;
+	GLfloat	**normals;
+}	t_glpos;
+
 typedef struct s_obj
 {
 	t_coords		*vertices;
 	t_tex_coords	*tex_coords;
 	t_coords		*normals;
 	t_face			*faces;
+	t_glpos			*glpos;
 	char			**file;
 	char			*dir;
 	int				fd;

@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:40:28 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 10:39:09 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:45:15 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,21 @@ void	ft_free_face(t_face *lst)
 		free(lst);
 }
 
+void free_glfloat(GLfloat **vertices, int nb_vertices)
+{
+	int	i;
+
+	i = -1;
+    if (!vertices || !vertices[0] || nb_vertices <= 0)
+        return ;
+    while (++i < nb_vertices)
+    {
+        free(vertices[i]);
+        vertices[i] = NULL;
+    }
+    free(vertices);
+}
+
 void	ft_free_obj(t_obj *object)
 {
 	if (object->dir)
@@ -77,8 +92,16 @@ void	ft_free_obj(t_obj *object)
 		close(object->fd);
 	if (object->file)
 		free_tab(object->file);
+	object->file = NULL;
 	ft_free_coords(object->vertices);
 	ft_free_coords(object->normals);
 	ft_free_tex(object->tex_coords);
 	ft_free_face(object->faces);
+	if (object->glpos)
+	{
+		free_glfloat(object->glpos->vertices, object->nb_vertex);
+		free_glfloat(object->glpos->normals, object->nb_normal);
+		free_glfloat(object->glpos->textures, object->nb_tex_coords);
+		free(object->glpos);
+	}
 }

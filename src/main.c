@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:00:57 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 10:40:07 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:52:21 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	main(int argc, char **argv)
 		return (ft_printf("%s%s%s\n", C_RED, E_ALLOC, C_NONE));
 	if (ft_args(argc, argv, s_m) || ft_parse_obj(&s_m->object))
 		ft_free_all(s_m);
+	init_glpos(&s_m->object);
 	ft_init_window(s_m);
 	ft_sdl_loop(s_m);
 	ft_free_all(s_m);
