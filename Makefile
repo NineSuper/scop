@@ -77,7 +77,7 @@ $(NAME): comp_start $(OBJ)
 all: $(NAME)
 # all: $(NAME) norminette
 
-leak: comp_start $(OBJ)
+leak: fclean comp_start $(OBJ)
 	$(CC) -fsanitize=address -g $(LIB) $(OBJ) -o $(NAME) $(LFLAGS)
 	echo "\n"
 	@$(EXE_READY)	

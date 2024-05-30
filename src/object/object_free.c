@@ -6,67 +6,79 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:40:28 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/28 16:41:03 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 10:39:09 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/include.h"
+#include "../../includes/include.h"
 
-void	ft_free_coods(t_coords **coords, int size)
+void	ft_free_coords(t_coords *lst)
 {
-	int	i;
+	t_coords	*current;
+	t_coords	*next;
 
-	i = -1;
-	if (!size || !coords || !*coords)
+	if (!lst)
 		return ;
-	while (++i < size)
+	current = lst->next;
+	while (current != NULL)
 	{
-		if (coords[i])
-			free(coords[i]);
+		next = current->next;
+		if (current)
+			free(current);
+		current = next;
 	}
-	free(coords);
+	if (lst)
+		free(lst);
 }
 
-void	ft_free_tex(t_tex_coords **coords, int size)
+void	ft_free_tex(t_tex_coords *lst)
 {
-	int	i;
+	t_tex_coords	*current;
+	t_tex_coords	*next;
 
-	i = -1;
-	if (!size || !coords || !*coords)
+	if (!lst)
 		return ;
-	while (++i < size)
+	current = lst->next;
+	while (current != NULL)
 	{
-		if (coords[i])
-			free(coords[i]);
+		next = current->next;
+		if (current)
+			free(current);
+		current = next;
 	}
-	free(coords);
+	if (lst)
+		free(lst);
 }
 
-void	ft_free_face(t_face **face, int size)
+void	ft_free_face(t_face *lst)
 {
-	int	i;
+	t_face	*current;
+	t_face	*next;
 
-	i = -1;
-	if (!size || !face || !*face)
+	if (!lst)
 		return ;
-	while (++i < size)
+	current = lst->next;
+	while (current != NULL)
 	{
-		if (face[i])
-			free(face[i]);
+		next = current->next;
+		if (current)
+			free(current);
+		current = next;
 	}
-	free(face);
+	if (lst)
+		free(lst);
 }
 
 void	ft_free_obj(t_obj *object)
 {
 	if (object->dir)
 		free(object->dir);
-	if (object->fd)
+	if (object->fd > 0)
 		close(object->fd);
 	if (object->file)
 		free_tab(object->file);
-	ft_free_coods(object->vertices, object->nb_vertex);
-	ft_free_coods(object->normals, object->nb_normal);
-	ft_free_tex(object->tex_coords, object->nb_tex_coords);
-	ft_free_face(object->faces, object->nb_faces);
+	ft_free_coords(object->vertices);
+	ft_free_coords(object->normals);
+	ft_free_tex(object->tex_coords);
+	ft_free_face(object->faces);
 }

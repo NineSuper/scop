@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 08:06:40 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/28 15:02:15 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 10:16:05 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,17 @@
 
 typedef struct s_coords
 {
-	float	x;
-	float	y;
-	float	z;
+	struct s_coords	*next;
+	float			x;
+	float			y;
+	float			z;
 }	t_coords;
 
 typedef struct s_tex_coords
 {
-	float	u;
-	float	v;
+	struct s_tex_coords	*next;
+	float				u;
+	float				v;
 }	t_tex_coords;
 
 typedef struct s_face
@@ -34,14 +36,15 @@ typedef struct s_face
 	unsigned int	vertex[3];
 	unsigned int	vertex_texture[3];
 	unsigned int	vertex_normal[3];
+	struct s_face	*next;
 }	t_face;
 
 typedef struct s_obj
 {
-	t_coords		**vertices;
-	t_tex_coords	**tex_coords;
-	t_coords		**normals;
-	t_face			**faces;
+	t_coords		*vertices;
+	t_tex_coords	*tex_coords;
+	t_coords		*normals;
+	t_face			*faces;
 	char			**file;
 	char			*dir;
 	int				fd;
