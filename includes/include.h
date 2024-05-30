@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 20:12:17 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 20:40:07 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,9 @@ void	ft_free_obj(t_obj *object);
 void	free_glfloat(GLfloat **vertices, int nb_vertices);
 // PARSING
 void	ft_read_file(t_obj *object);
+void	ft_scanf_face(const char *str, t_face *lst);
+// UTILS
+void	generate_color(t_face *new_face);
 //			FUNCTION		//
 
 #endif

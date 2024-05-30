@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:27:48 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 20:18:19 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 20:35:17 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,24 +54,23 @@ void	draw_object(t_obj *obj)
 {
 	t_face	*face_list;
 	int		i;
-	GLfloat	color[4];
 
 	face_list = obj->faces->next;
 	glEnable(GL_NORMALIZE);
-	glBegin(GL_TRIANGLES);
+	glBegin(GL_POLYGON);
+	// glBegin(GL_LINES);
 	while (face_list)
 	{
 		glColor4fv(face_list->color);
 		i = -1;
 		while (++i < 3)
 		{
-			get_random_color(color);
 			if (obj->nb_normal > 0)
 				glNormal3fv(obj->glpos->normals[face_list->vertex_normal[i] - 1]);
 			if (obj->nb_tex_coords > 0)
 				glTexCoord2fv(obj->glpos->textures[face_list->vertex_texture[i] - 1]);
-			// glVertex3fv(obj->glpos->vertices[face_list->vertex[i] - 1]);
-			printf("%f %f %f\n", obj->glpos->vertices[face_list->vertex[0]][0], obj->glpos->vertices[face_list->vertex[0]][1], obj->glpos->vertices[face_list->vertex[0]][2]);
+			glVertex3fv(obj->glpos->vertices[face_list->vertex[i] - 1]);
+			// printf("%f %f %f\n", obj->glpos->vertices[face_list->vertex[0]][0], obj->glpos->vertices[face_list->vertex[0]][1], obj->glpos->vertices[face_list->vertex[0]][2]);
 		}
 		face_list = face_list->next;
 	}

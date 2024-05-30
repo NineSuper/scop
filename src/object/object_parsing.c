@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:13:03 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 20:09:07 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 20:36:01 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,33 +60,6 @@ void	ft_scanf_normal(const char *str, t_coords *lst)
 	temp->next = new;
 }
 
-void	ft_scanf_face(const char *str, t_face *lst)
-{
-	t_face	*temp;
-	t_face	*new;
-
-	if (!lst)
-	{
-		ft_printf("%s%s%s\n", C_RED, E_ALLOC, C_NONE);
-		return ;
-	}
-	temp = lst;
-	while (temp->next)
-		temp = temp->next;
-	new = (t_face *)ft_calloc(sizeof(t_face), 1);
-	if (!new)
-	{
-		ft_printf("%s%s%s\n", C_RED, E_ALLOC, C_NONE);
-		return ;
-	}
-	new->next = NULL;
-	sscanf(str, "f %u/%u/%u %u/%u/%u %u/%u/%u", \
-		&new->vertex[0], &new->vertex_texture[0], &new->vertex_normal[0], \
-		&new->vertex[1], &new->vertex_texture[1], &new->vertex_normal[1], \
-		&new->vertex[2], &new->vertex_texture[2], &new->vertex_normal[2]);
-	get_random_color(new->color);
-	temp->next = new;
-}
 
 void	ft_scanf_tex(const char *str, t_tex_coords *lst)
 {
