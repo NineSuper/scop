@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:00:57 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 14:52:21 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:33:40 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,20 @@
 	TODO	Afficher un cube fait sur blender
 	TODO	Faire un HUD
 */
+
+void	ft_init_cam(t_cam *cam)
+{
+	cam->grow_shrink = 70.0f;
+	cam->mouseDown = 0;
+	cam->xrot = 100.0f;
+	cam->yrot = -100.0f;
+	cam->xdiff = 100.0f;
+	cam->ydiff = 100.0;
+	cam->tra_x = 0.0f;
+	cam->tra_y = 0.0f;
+	cam->tra_z = 0.0f;
+	cam->resize_f = 1.0f;
+}
 
 int	ft_args(int argc, char **argv, t_master *s_m)
 {
@@ -52,6 +66,7 @@ int	main(int argc, char **argv)
 	if (ft_args(argc, argv, s_m) || ft_parse_obj(&s_m->object))
 		ft_free_all(s_m);
 	init_glpos(&s_m->object);
+	ft_init_cam(&s_m->cam);
 	ft_init_window(s_m);
 	ft_sdl_loop(s_m);
 	ft_free_all(s_m);

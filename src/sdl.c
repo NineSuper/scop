@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:27:48 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 14:58:31 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:41:04 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,24 @@
             0.0, 1.0, 0.0); // Direction de l'axe
 */
 
-void setup_camera()
+void	setup_camera(t_cam *cam)
 {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(70.0f, 1.0f * WIDTH / HEIGHT, 1.0f, 100 * 1.0f);
+	gluPerspective(cam->grow_shrink, cam->resize_f * WIDTH / HEIGHT, \
+		cam->resize_f, 100 * cam->resize_f);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     gluLookAt(5.0, 5.0, 5.0,
               0.0, 0.0, 0.0,
               0.0, 1.0, 0.0);
+}
+
+void	ft_camera(t_cam *cam)
+{
+	setup_camera(cam);
+	glRotatef(cam->xrot, 1.0f, 0.0f, 0.0f);
+	glRotatef(cam->yrot, 0.0f, 1.0f, 0.0f);
 }
 
 void	draw_object(t_obj *obj)
@@ -48,11 +56,11 @@ void	draw_object(t_obj *obj)
 	int		i;
 
 	face_list = obj->faces->next;
-	setup_camera();
 	glBegin(GL_TRIANGLES);
 	while (face_list)
 	{
 		i = -1;
+		glColor3f(1.0f, 0.0f, 0.0f);
 		while (++i < 3)
 		{
 			if (obj->nb_normal > 0)
@@ -78,8 +86,10 @@ void	ft_sdl_loop(t_master *s_m)
 			else if (s_m->win.event.type == SDL_KEYDOWN)
 				printf( "Key press detected\n" );
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		ft_camera(&s_m->cam);
 		draw_object(&s_m->object);
 		SDL_GL_SwapWindow(s_m->win.window);
+		SDL_Delay(10);
 	}
 	SDL_GL_DeleteContext(s_m->win.context);
 }

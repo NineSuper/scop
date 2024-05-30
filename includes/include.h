@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 14:39:03 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:35:06 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include "object.h"
-# include "keyboard.h"
 
 /*		String		*/
 # define TITLE "SCOP"
@@ -61,10 +60,25 @@ typedef struct s_win
 	int				width;
 }	t_win;
 
+typedef struct s_cam
+{
+	float	xrot;
+	float	yrot;
+	float	xdiff;
+	float	ydiff;
+	float	tra_x;
+	float	tra_y;
+	float	tra_z;
+	float	grow_shrink;
+	float	resize_f;
+	int		mouseDown;
+}	t_cam;
+
 typedef struct s_master
 {
 	t_win	win;
 	t_obj	object;
+	t_cam	cam;
 	bool	quit;
 }	t_master;
 
