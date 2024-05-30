@@ -15,10 +15,10 @@ Ce projet permet de se familiariser avec les concepts de rendu 3D en utilisant d
 
 ## 🛠️ Fonctionnalités
 
-- [🚧] Parsing des fichiers .obj pour obtenir le rendu demandé
-- [🚧] Affichage d'objets 3D à partir de fichiers .obj
-- [ ] Rendu en perspective avec rotation autour de l'object
-- [ ] Gestion des déplacements sur les trois axes
+- [x] Parsing des fichiers .obj pour obtenir le rendu demandé
+- [x] Affichage d'objets 3D à partir de fichiers .obj
+- [🚧] Rendu en perspective avec rotation autour de l'object
+- [🚧] Gestion des déplacements sur les trois axes
 - [ ] Application de textures sur l'objet avec légère transition
 
 ## 🔧 Prérequis
