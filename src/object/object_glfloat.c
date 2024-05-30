@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:28:53 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 14:44:46 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:56:05 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ void	init_glpos(t_obj *obj)
 		ft_printf("%s%s%s\n", C_RED, E_ALLOC, C_NONE);
 		return ;
 	}
-	init_gl_vert(obj->vertices, &(obj->glpos->vertices), obj->nb_vertex);
-	init_gl_text(obj->tex_coords, &(obj->glpos->textures), obj->nb_tex_coords);
-	init_gl_vert(obj->normals, &(obj->glpos->normals), obj->nb_normal);
+    if (obj->nb_vertex > 0)
+	    init_gl_vert(obj->vertices, &(obj->glpos->vertices), obj->nb_vertex);
+    if (obj->nb_tex_coords > 0)
+	    init_gl_text(obj->tex_coords, &(obj->glpos->textures), obj->nb_tex_coords);
+    if (obj->nb_normal > 0)
+	    init_gl_vert(obj->normals, &(obj->glpos->normals), obj->nb_normal);
 }

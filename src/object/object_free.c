@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:40:28 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 14:45:15 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:58:34 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,16 @@ void free_glfloat(GLfloat **vertices, int nb_vertices)
 	int	i;
 
 	i = -1;
-    if (!vertices || !vertices[0] || nb_vertices <= 0)
+    if (!vertices || nb_vertices <= 0)
         return ;
     while (++i < nb_vertices)
     {
-        free(vertices[i]);
+		if (vertices[i])
+       		free(vertices[i]);
         vertices[i] = NULL;
     }
-    free(vertices);
+	if (vertices)
+    	free(vertices);
 }
 
 void	ft_free_obj(t_obj *object)

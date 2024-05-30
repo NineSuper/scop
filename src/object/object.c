@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:31:22 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 14:07:51 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 19:38:03 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,17 @@
 void	ft_read_obj(t_obj *object)
 {
 	char	*temp;
-	char	buff[1];
+	char	buff[4096];
 	int		size;
+	char	*old_temp;
 
-	size = 1;
-	temp = ft_calloc(sizeof(char), 1);
-	while (size != 0)
+	temp = ft_calloc(1, 1);  // Initialisation correcte
+	while ((size = read(object->fd, buff, sizeof(buff))) > 0)
 	{
-		size = read(object->fd, buff, 1);
-		if (size)
-			temp = gnl_ft_strjoin(temp, buff);
+		old_temp = temp;
+		buff[size] = '\0';
+		temp = ft_strjoin(temp, buff);
+		free(old_temp);
 	}
 	if (object->fd > 0)
 		close(object->fd);

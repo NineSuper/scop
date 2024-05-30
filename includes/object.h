@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 08:06:40 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 14:10:39 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 20:08:50 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_face
 	unsigned int	vertex[3];
 	unsigned int	vertex_texture[3];
 	unsigned int	vertex_normal[3];
+	GLfloat			color[4];
 	struct s_face	*next;
 }	t_face;
 

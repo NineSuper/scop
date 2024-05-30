@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 15:35:06 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/30 20:12:17 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <time.h>
 # include "object.h"
 
 /*		String		*/
@@ -89,6 +90,7 @@ void	ft_init_window(t_master *s_m);
 void	ft_sdl_loop(t_master *s_m);
 int		ft_parse_obj(t_obj *object);
 void	init_glpos(t_obj *obj);
+void	get_random_color(GLfloat *color);
 //	FREE
 void	ft_free_all(t_master *s_m);
 void	free_tab(char **tab);
