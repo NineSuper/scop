@@ -26,7 +26,7 @@ Ce projet permet de se familiariser avec les concepts de rendu 3D en utilisant d
 Assurez-vous d'avoir les bibliothèques graphiques nécessaires installées sur votre système.
 
 ```bash
-sudo apt-get install libx11-dev libxext-dev libbsd-dev libgl1-mesa-dev libsdl2-ttf-dev
+sudo apt-get install libsdl2-dev libx11-dev libxext-dev libbsd-dev libgl1-mesa-dev mesa-common-dev freeglut3-dev
 ```
 
 ## 🗳️ Installation
