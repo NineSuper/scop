@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:27:48 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 22:39:52 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/31 08:25:59 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,36 +29,6 @@
             0.0, 0.0, 0.0, // Point que la caméra regarde
             0.0, 1.0, 0.0); // Direction de l'axe
 */
-
-void	setup_camera(t_cam *cam)
-{
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-	gluPerspective(cam->grow_shrink, cam->resize_f * WIDTH / HEIGHT, \
-		cam->resize_f, 100 * cam->resize_f);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    gluLookAt(5.0, 5.0, 5.0,
-              0.0, 0.0, 0.0,
-              0.0, 1.0, 0.0);
-}
-
-void	ft_camera(t_cam *cam)
-{
-	setup_camera(cam);
-	glRotatef(cam->xrot, 1.0f, 0.0f, 0.0f);
-	glRotatef(cam->yrot, 0.0f, 1.0f, 0.0f);
-}
-
-void	ft_face_draw(int num)
-{
-	if (num == 3)
-		glBegin(GL_TRIANGLES);
-	if (num == 4)
-		glBegin(GL_QUADS);
-	if (num == 5)
-		glBegin(GL_POLYGON);
-}
 
 void	draw_object(t_obj *obj)
 {
@@ -94,9 +64,11 @@ void	ft_sdl_loop(t_master *s_m)
 		while (SDL_PollEvent(&s_m->win.event))
 			if (s_m->win.event.type == SDL_QUIT)
 				s_m->quit = true;
-			else if (s_m->win.event.type == SDL_KEYDOWN)
-				printf("Key press detected\n");
+			else
+				ft_otherEvent(s_m, s_m->win.event);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glLoadIdentity();
+		setup_lighting();
 		ft_camera(&s_m->cam);
 		draw_object(&s_m->object);
 		SDL_GL_SwapWindow(s_m->win.window);

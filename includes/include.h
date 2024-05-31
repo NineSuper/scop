@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 20:40:07 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/31 08:26:57 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ void	ft_sdl_loop(t_master *s_m);
 int		ft_parse_obj(t_obj *object);
 void	init_glpos(t_obj *obj);
 void	get_random_color(GLfloat *color);
+void	setup_camera(t_cam *cam);
+void	setup_lighting();
 //	FREE
 void	ft_free_all(t_master *s_m);
 void	free_tab(char **tab);
@@ -101,6 +103,12 @@ void	ft_read_file(t_obj *object);
 void	ft_scanf_face(const char *str, t_face *lst);
 // UTILS
 void	generate_color(t_face *new_face);
+void	ft_face_draw(int num);
+void	ft_camera(t_cam *cam);
+void 	ft_key(t_master *s_m, int key);
+void    ft_mouse_motion(t_master *s_m, int x, int y);
+void    ft_mouse_button(t_master *s_m, int button, int state, int x, int y);
+void	ft_otherEvent(t_master *s_m, SDL_Event event);
 //			FUNCTION		//
 
 #endif
