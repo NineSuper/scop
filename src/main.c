@@ -6,23 +6,11 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:00:57 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 15:33:40 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/31 08:50:46 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
-
-/*
-	TODO	Créer des objets 3D sur blender
-	TODO	Parser les objets
-	TODO	Faire une fenêtre avec SDL2
-	*	Apprendre à regarder les leaks sans voir les erreurs génerés \
-		automatiquement via OpenGL
-	*	Faire des évènements sur la fenêtre
-	*	Mettre un cube via OpenGL sur la fenêtre SDL2 
-	TODO	Afficher un cube fait sur blender
-	TODO	Faire un HUD
-*/
 
 void	ft_init_cam(t_cam *cam)
 {

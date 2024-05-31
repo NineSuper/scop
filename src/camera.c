@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 07:55:17 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/31 08:34:36 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/31 08:44:25 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void setup_lighting()
     GLfloat high_shininess[] = { 100.0f };
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
+	glEnable(GL_COLOR_MATERIAL);
     glLightfv(GL_LIGHT0, GL_POSITION, light_position);
     glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);

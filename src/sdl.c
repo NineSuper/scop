@@ -6,29 +6,11 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:27:48 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/31 08:25:59 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/31 08:50:39 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
-
-/*
-	TODO	Créer des objets 3D sur blender
-	TODO	Parser les objets
-	TODO	Faire une fenêtre avec SDL2
-	*	Apprendre à regarder les leaks sans voir les erreurs génerés \
-		automatiquement via OpenGL
-	*	Faire des évènements sur la fenêtre
-	*	Mettre un cube via OpenGL sur la fenêtre SDL2 
-	TODO	Afficher un cube fait sur blender
-	TODO	Faire un HUD
-
-	gluPerspective(70.0f, 1.0f * WIDTH / HEIGHT, 1.0f, 100 * 1.0f); // FOV
-
-    gluLookAt(5.0, 5.0, 5.0, // Position de la caméra
-            0.0, 0.0, 0.0, // Point que la caméra regarde
-            0.0, 1.0, 0.0); // Direction de l'axe
-*/
 
 void	draw_object(t_obj *obj)
 {

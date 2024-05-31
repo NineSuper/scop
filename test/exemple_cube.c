@@ -149,9 +149,6 @@ void keyboard(unsigned char key, int x, int y)
 		case 27 : 
 			exit(1); 
 			break;
-
-			
-
 		case 'w':
 		case 'W':
 			tra_x += 0.1f;

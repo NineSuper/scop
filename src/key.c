@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 08:25:49 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/31 08:30:32 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/05/31 08:50:26 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ void	ft_otherEvent(t_master *s_m, SDL_Event event)
 	else if (event.type == SDL_MOUSEMOTION)
 		ft_mouse_motion(s_m, event.motion.x, event.motion.y);
 	else if (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP)
-		ft_mouse_button(s_m, event.button.button, event.button.state, event.button.x, event.button.y);
+		ft_mouse_button(s_m, event.button.button, event.button.state, \
+            event.button.x, event.button.y);
 }
