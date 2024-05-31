@@ -48,8 +48,13 @@ Compilez le projet :
 
 ## ⌨️ Contrôles
 - W/A/S/D : Déplacements sur les axes X, Y, Z
+- X/Z : Zoom/Dézoom
 - G : Appliquer/retirer la texture
 - Esc : Quitter l'application
+
+## 👀 Aperçu actuel
+
+![cube](./gif/Cube.gif)
 
 ## 📝 Auteur
 
