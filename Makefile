@@ -8,6 +8,7 @@ INC_SRCH_PATH :=
 INC_SRCH_PATH += -I includes/ -I$(MLX_PATH)
 
 LFLAGS = -lglfw -lGL -lm -lSDL2 -lSDL2main -lGLU -lglut
+LFLAGS_MAC = -L/usr/local/lib -L/opt/X11/lib -lglfw -lGL -lm -lSDL2 -lSDL2main -lGLU -lglut
 
 NAME = Scop
 
@@ -23,8 +24,8 @@ HEADER_FILE = $(wildcard $(HEADER_DIR)/*.h) lib/ft_printf/ft_printf.h lib/libft/
 
 CC = gcc
 
-FLAGS = -Wall -Werror -Wextra
-# FLAGS =
+# FLAGS = -Wall -Werror -Wextra
+FLAGS =
 
 # ------------------------------ Couleurs ------------------------------
 
@@ -80,7 +81,7 @@ all: $(NAME)
 leak: fclean comp_start $(OBJ)
 	$(CC) -fsanitize=address -g $(LIB) $(OBJ) -o $(NAME) $(LFLAGS)
 	echo "\n"
-	@$(EXE_READY)	
+	@$(EXE_READY)
 
 norminette:
 	$(NORM_LIB)
