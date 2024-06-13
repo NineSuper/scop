@@ -1,0 +1,49 @@
+{
+   ignore_ld_linux_leaks
+   Memcheck:Leak
+   ...
+   obj:*/ld-linux.so.*
+}
+
+{
+   ignore_ld_linux_leaks
+   Memcheck:Leak
+   ...
+   obj:*/libc.so.*
+}
+
+{
+   ignore_opengl_libGL_leaks
+   Memcheck:Leak
+   ...
+   obj:*/libGL.so.*
+}
+
+{
+   ignore_opengl_libGLU_leaks
+   Memcheck:Leak
+   ...
+   obj:*/libGLU.so.*
+}
+
+{
+   ignore_opengl_libGLEW_leaks
+   Memcheck:Leak
+   ...
+   obj:*/libGLEW.so.*
+}
+
+{
+   ignore_libGLX_leaks
+   Memcheck:Leak
+   ...
+   obj:*/libGLX.so.*
+}
+
+{
+   ignore_libGLdispatch_leaks
+   Memcheck:Leak
+   ...
+   obj:*/libGLdispatch.so.*
+}
+
