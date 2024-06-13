@@ -52,9 +52,10 @@ Compilez le projet :
 - G : Appliquer/retirer la texture
 - Esc : Quitter l'application
 
-## 👀 Aperçu actuel
+## 👀 Aperçus actuels
 
 ![cube](./gif/Cube.gif)
+![teapot](./gif/teapot.gif)
 
 ## 📝 Auteur
 
