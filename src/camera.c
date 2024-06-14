@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 07:55:17 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/31 08:44:25 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:59:16 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,20 @@ void setup_lighting()
     glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
     glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
     glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular); 
+    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
     glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
 }
 
-void	setup_camera(t_cam *cam)
-{
+void setup_camera(t_cam *cam) {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-	gluPerspective(cam->grow_shrink, cam->resize_f * WIDTH / HEIGHT, \
-		cam->resize_f, 100 * cam->resize_f);
+    gluPerspective(cam->grow_shrink, cam->resize_f * WIDTH / HEIGHT, cam->resize_f, 100 * cam->resize_f);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     gluLookAt(5.0, 5.0, 5.0,
-              0.0, 0.0, 0.0,
-              0.0, 1.0, 0.0);
-	glTranslatef(cam->tra_x, cam->tra_y, cam->tra_z);
+            0.0, 0.0, 0.0,
+            0.0, 1.0, 0.0);
+    glTranslatef(cam->tra_x, cam->tra_y, cam->tra_z);
 }
 
 void	ft_camera(t_cam *cam)

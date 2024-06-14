@@ -6,14 +6,14 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/31 08:26:57 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/06/14 14:02:46 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INCLUDE_H
 # define INCLUDE_H
 
-/*      Libft       */
+/*		Libft		*/
 # include "../lib/libft/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
 # include "../lib/gnl/get_next_line.h"
@@ -49,6 +49,22 @@
 
 # ifndef HEIGHT
 #  define HEIGHT 720
+# endif
+
+// macOS
+# ifdef __APPLE__
+#  include <OpenGL/glu.h>
+#  define USE_GLK
+# else
+// Linux/Windows
+# include <GL/glu.h>
+#  undef USE_GLK
+# endif
+
+# ifdef __APPLE__
+#  include <GLKit/GLKMatrix4.h>
+#  define gluPerspective(fovy, aspect, zNear, zFar) GLKMatrix4MakePerspective(fovy, aspect, zNear, zFar)
+#  define gluLookAt(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ) GLKMatrix4MakeLookAt(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ)
 # endif
 
 typedef struct s_win

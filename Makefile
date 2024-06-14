@@ -7,8 +7,15 @@ MLX_PATH=lib/mlx/
 INC_SRCH_PATH :=
 INC_SRCH_PATH += -I includes/ -I$(MLX_PATH)
 
-LFLAGS = -lglfw -lGL -lm -lSDL2 -lSDL2main -lGLU -lglut
-LFLAGS_MAC = -L/usr/local/lib -L/opt/X11/lib -lglfw -lGL -lm -lSDL2 -lSDL2main -lGLU -lglut
+UNAME_S := $(shell uname -s)
+
+ifeq ($(UNAME_S),Linux)
+    LFLAGS = -lglfw -lGL -lm -lSDL2 -lSDL2main -lGLU -lglut
+endif
+
+ifeq ($(UNAME_S),Darwin)  # macOS
+    LFLAGS = -L/usr/local/lib -L/opt/X11/lib -lglfw -lGL -lm -lSDL2 -lSDL2main -lGLU -lglut
+endif
 
 NAME = Scop
 
