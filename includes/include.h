@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:14:12 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/06/14 14:02:46 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:14:26 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 /*		Texture		*/
 
 /*		Color		*/
+# define C_BLUE "\033[1;36m"
 # define C_GREEN "\033[1;32m"
 # define C_RED "\033[1;41m"
 # define C_NONE "\033[0m"
@@ -109,6 +110,7 @@ void	init_glpos(t_obj *obj);
 void	get_random_color(GLfloat *color);
 void	setup_camera(t_cam *cam);
 void	setup_lighting();
+void	ft_init_mtl(t_mtl *mtl, char *dir);
 //	FREE
 void	ft_free_all(t_master *s_m);
 void	free_tab(char **tab);

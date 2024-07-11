@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 07:55:17 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/06/14 13:59:16 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/07/11 12:27:18 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void setup_lighting()
     glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
 }
 
-void setup_camera(t_cam *cam) {
+void setup_camera(t_cam *cam)
+{
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(cam->grow_shrink, cam->resize_f * WIDTH / HEIGHT, cam->resize_f, 100 * cam->resize_f);

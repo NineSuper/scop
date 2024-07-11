@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:31:22 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/06/13 10:28:48 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/07/11 13:46:42 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_read_obj(t_obj *object)
 	int		size;
 	char	*old_temp;
 
-	temp = ft_calloc(1, 1);  // Initialisation correcte
+	temp = ft_calloc(1, 1);
 	while ((size = read(object->fd, buff, sizeof(buff))) > 0)
 	{
 		old_temp = temp;
@@ -53,6 +53,7 @@ void	ft_init_obj(t_obj *object)
 	object->normals = ft_calloc(sizeof(t_coords), 1);
 	object->faces = ft_calloc(sizeof(t_face), 1);
 	object->tex_coords = ft_calloc(sizeof(t_tex_coords), 1);
+	object->mtl = ft_calloc(sizeof(t_mtl), 1);
 	object->nb_vertex = 0;
 	object->nb_normal = 0;
 	object->nb_tex_coords = 0;

@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 08:06:40 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 22:27:21 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:07:28 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,20 @@ typedef struct s_glpos
 	GLfloat	**normals;
 }	t_glpos;
 
+typedef struct s_mtl
+{
+	char	*newmtl;
+	char	*dir;
+	char	**file;
+	float	Ns;
+	float	Ka[3];
+	float	Kd[3];
+	float	Ks[3];
+	float	Ni;
+	float	d;
+	int		illum;
+}	t_mtl;
+
 typedef struct s_obj
 {
 	t_coords		*vertices;
@@ -55,6 +69,7 @@ typedef struct s_obj
 	t_coords		*normals;
 	t_face			*faces;
 	t_glpos			*glpos;
+	t_mtl			*mtl;
 	char			**file;
 	char			*dir;
 	int				fd;

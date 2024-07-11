@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:13:03 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/06/07 15:57:31 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:15:22 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,12 @@ void	ft_read_file(t_obj *object)
 		else if (!ft_strncmp(object->file[i], "vt ", 3) && \
 			++object->nb_tex_coords)
 			ft_scanf_tex(object->file[i], object->tex_coords);
+		else if (!ft_strncmp(object->file[i], "mtllib ", 7))
+			ft_init_mtl(object->mtl, object->file[i] + 7);
 	}
 	free_tab(object->file);
 	object->file = NULL;
+	printf("%s", C_BLUE);
 	printf("[V][%d] [VN][%d] [F][%d] [VT][%d]\n", object->nb_vertex, object->nb_normal, object->nb_faces, object->nb_tex_coords);
+	printf("%s", C_NONE);
 }

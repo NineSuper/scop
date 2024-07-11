@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:40:28 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/30 19:58:34 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/07/11 13:47:52 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,18 @@ void free_glfloat(GLfloat **vertices, int nb_vertices)
     	free(vertices);
 }
 
+void	ft_free_mtl(t_mtl *mtl)
+{
+	if (!mtl->dir)
+	{
+		free(mtl);
+		return ;
+	}
+	free(mtl->dir);
+	free_tab(mtl->file);
+	free(mtl);
+}
+
 void	ft_free_obj(t_obj *object)
 {
 	if (object->dir)
@@ -95,6 +107,7 @@ void	ft_free_obj(t_obj *object)
 	if (object->file)
 		free_tab(object->file);
 	object->file = NULL;
+	ft_free_mtl(object->mtl);
 	ft_free_coords(object->vertices);
 	ft_free_coords(object->normals);
 	ft_free_tex(object->tex_coords);
