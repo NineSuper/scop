@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:42:30 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/07/11 14:14:31 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/07/11 15:15:16 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ void    ft_read_mtl(t_mtl *mtl, int fd)
 	}
 }
 
+void    ft_print_mtl(t_mtl *mtl)
+{
+    printf("%s[\n", C_BLUE);
+    printf("\tNs : %f\n", mtl->Ns);
+    printf("\tKa : %f %f %f\n", mtl->Ka[0], mtl->Ka[1], mtl->Ka[2]);
+    printf("\tKd : %f %f %f\n", mtl->Kd[0], mtl->Kd[1], mtl->Kd[2]);
+    printf("\tKs : %f %f %f\n", mtl->Ks[0], mtl->Ks[1], mtl->Ks[2]);
+    printf("\tNi : %f\n", mtl->Ni);
+    printf("\td : %f\n", mtl->d);
+    printf("\tillum : %d\n", mtl->illum);
+    printf("]%s\n", C_NONE);
+}
+
 void    ft_read_file_mtl(t_mtl *mtl)
 {
     int i;
@@ -58,15 +71,7 @@ void    ft_read_file_mtl(t_mtl *mtl)
         else if (!ft_strncmp(mtl->file[i], "illum ", 6))
             sscanf(mtl->file[i], "illum %d", &mtl->illum);
     }
-    printf("%s[\n", C_BLUE);
-    printf("\tNs : %f\n", mtl->Ns);
-    printf("\tKa : %f %f %f\n", mtl->Ka[0], mtl->Ka[1], mtl->Ka[2]);
-    printf("\tKd : %f %f %f\n", mtl->Kd[0], mtl->Kd[1], mtl->Kd[2]);
-    printf("\tKs : %f %f %f\n", mtl->Ks[0], mtl->Ks[1], mtl->Ks[2]);
-    printf("\tNi : %f\n", mtl->Ni);
-    printf("\td : %f\n", mtl->d);
-    printf("\tillum : %d\n", mtl->illum);
-    printf("]%s\n", C_NONE);
+    ft_print_mtl(mtl);
 }
 
 void	ft_init_mtl(t_mtl *mtl, char *dir)

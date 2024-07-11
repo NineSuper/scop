@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:40:28 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/07/11 13:47:52 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/07/11 15:09:36 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void free_glfloat(GLfloat **vertices, int nb_vertices)
 
 void	ft_free_mtl(t_mtl *mtl)
 {
+	if (!mtl)
+		return ;
 	if (!mtl->dir)
 	{
 		free(mtl);
