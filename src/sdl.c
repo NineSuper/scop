@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:27:48 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/07/11 16:13:49 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:40:12 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,17 @@ void	draw_object(t_obj *obj)
 {
     t_face	*face_list;
     int		i;
-    
+
     face_list = obj->faces->next;
     glEnable(GL_NORMALIZE);
 	if (obj->mtl->dir)
 		apply_material(obj->mtl);
     while (face_list)
     {
-
-		if (!obj->mtl->dir)
+		if (!obj->mtl->dir || !obj->print_tex)
         	glColor4fv(face_list->color);
 		else
 			glColor3fv(obj->mtl->Kd);
-
         ft_face_draw(face_list->num_vertices);
         i = -1;
         while (++i < face_list->num_vertices)

@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 08:06:40 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/07/11 14:07:28 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:31:27 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct s_obj
 	t_mtl			*mtl;
 	char			**file;
 	char			*dir;
+	bool			print_tex;
 	int				fd;
 	int				nb_vertex;
 	int				nb_normal;

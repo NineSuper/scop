@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 08:25:49 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/05/31 08:50:26 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:32:13 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ void    ft_key(t_master *s_m, int key)
         s_m->cam.tra_z -= 0.1f;
     else if (key == SDLK_d)
         s_m->cam.tra_z += 0.1f;
+    else if (key == SDLK_t)
+    {
+        if (s_m->object.print_tex == false)
+            s_m->object.print_tex = true;
+        else
+            s_m->object.print_tex = false;
+    }
 }
 
 void    ft_mouse_motion(t_master *s_m, int x, int y)
