@@ -19,7 +19,7 @@ Ce projet permet de se familiariser avec les concepts de rendu 3D en utilisant d
 - [x] Affichage d'objets 3D à partir de fichiers .obj
 - [x] Rendu en perspective avec rotation autour de l'object
 - [x] Gestion des déplacements sur les trois axes
-- [🚧] Application de textures sur l'objet avec légère transition
+- [x] Application de textures sur l'objet avec légère transition
 
 ## 🔧 Prérequis
 
