@@ -27,7 +27,7 @@ Assurez-vous d'avoir les bibliothèques graphiques nécessaires installées sur 
 
 🐧 Linux:
 ```bash
-sudo apt-get install libsdl2-dev libx11-dev libxext-dev libbsd-dev libgl1-mesa-dev mesa-common-dev freeglut3-dev
+sudo apt-get install libsdl2-dev libx11-dev libxext-dev libbsd-dev libgl1-mesa-dev mesa-common-dev freeglut3-dev libglfw3-dev
 ```
 💻 MacOs:
 ```bash
