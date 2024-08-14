@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 13:42:30 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/07/11 15:15:16 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/08/14 10:58:02 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void    ft_read_mtl(t_mtl *mtl, int fd)
 
 void    ft_print_mtl(t_mtl *mtl)
 {
-    printf("%s[\n", C_BLUE);
+    printf("%s{\n", C_BLUE);
     printf("\tNs : %f\n", mtl->Ns);
     printf("\tKa : %f %f %f\n", mtl->Ka[0], mtl->Ka[1], mtl->Ka[2]);
     printf("\tKd : %f %f %f\n", mtl->Kd[0], mtl->Kd[1], mtl->Kd[2]);
@@ -46,7 +46,7 @@ void    ft_print_mtl(t_mtl *mtl)
     printf("\tNi : %f\n", mtl->Ni);
     printf("\td : %f\n", mtl->d);
     printf("\tillum : %d\n", mtl->illum);
-    printf("]%s\n", C_NONE);
+    printf("}%s\n", C_NONE);
 }
 
 void    ft_read_file_mtl(t_mtl *mtl)

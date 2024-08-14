@@ -6,18 +6,17 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 07:55:17 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/07/11 16:04:24 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/08/14 19:44:33 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/include.h"
 
-
 void setup_lighting()
 {
     GLfloat light_position[] = { 5.0f, 5.0f, -5.0f, 1.0f };
-    GLfloat light_ambient[] = { 0.2f, 0.2f, 0.2f, 1.0f };
-    GLfloat light_diffuse[] = { 0.8f, 0.8f, 0.8f, 1.0f };
+    GLfloat light_ambient[] = { 0.4f, 0.4f, 0.4f, 1.0f };
+    GLfloat light_diffuse[] = { 0.9f, 0.9f, 0.9f, 1.0f };
     GLfloat light_specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
     GLfloat mat_ambient[] = { 0.7f, 0.7f, 0.7f, 1.0f };
     GLfloat mat_diffuse[] = { 0.8f, 0.8f, 0.8f, 1.0f };
@@ -25,7 +24,10 @@ void setup_lighting()
     GLfloat high_shininess[] = { 100.0f };
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
-	glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_NORMALIZE);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_COLOR_MATERIAL);
+    glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
     glLightfv(GL_LIGHT0, GL_POSITION, light_position);
     glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
     glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
@@ -47,6 +49,8 @@ void setup_camera(t_cam *cam)
             0.0, 0.0, 0.0,
             0.0, 1.0, 0.0);
     glTranslatef(cam->tra_x, cam->tra_y, cam->tra_z);
+    GLfloat light_position[] = { 5.0f, 5.0f, -5.0f, 1.0f };
+    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 }
 
 void	ft_camera(t_cam *cam)

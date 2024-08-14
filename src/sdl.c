@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 06:27:48 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/07/11 16:40:12 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/08/14 19:24:01 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	apply_material(t_mtl *mtl)
 	GLfloat mat_ambient[] = { mtl->Ka[0], mtl->Ka[1], mtl->Ka[2], mtl->d};
 	GLfloat mat_diffuse[] = { mtl->Kd[0], mtl->Kd[1], mtl->Kd[2], mtl->d};
 	GLfloat mat_specular[] = { mtl->Ks[0], mtl->Ks[1], mtl->Ks[2], mtl->d};
-	GLfloat mat_shininess[] = { mtl->Ns };
+	GLfloat mat_shininess = mtl->Ns;
 
 	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+	glMaterialf(GL_FRONT, GL_SHININESS, mat_shininess);
 }
 
 void	draw_object(t_obj *obj)

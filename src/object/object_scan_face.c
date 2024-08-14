@@ -6,7 +6,7 @@
 /*   By: tde-los- <tde-los-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:35:46 by tde-los-          #+#    #+#             */
-/*   Updated: 2024/06/07 15:57:31 by tde-los-         ###   ########.fr       */
+/*   Updated: 2024/08/14 19:34:07 by tde-los-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void read_indices(t_face *new_face, char **tokens, int num_read)
 	i = -1;
 	while (++i < num_read)
     {
-        sscanf(tokens[i + 1], "%u/%u/%u", 
+        sscanf(tokens[i + 1], "%u/%u/%u",
                &new_face->vertex[i], &new_face->vertex_texture[i], &new_face->vertex_normal[i]);
     }
 }
@@ -80,6 +80,7 @@ void ft_scanf_face(const char *str, t_face *lst)
     num_read = count_vertices(str, &tokens);
     read_indices(new_face, tokens, num_read);
     generate_color(new_face);
+    get_random_color(new_face->color);
     update_num_vertices(new_face, num_read);
     free_tab(tokens);
     if (num_read < 3)
