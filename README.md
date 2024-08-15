@@ -59,6 +59,7 @@ Compilez le projet :
 
 ## 👀 Aperçus actuels
 
+![42](./gif/42.gif)
 ![cube](./gif/Cube.gif)
 ![teapot](./gif/teapot.gif)
 
