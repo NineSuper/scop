@@ -31,8 +31,8 @@ HEADER_FILE = $(wildcard $(HEADER_DIR)/*.h) lib/ft_printf/ft_printf.h lib/libft/
 
 CC = gcc
 
-# FLAGS = -Wall -Werror -Wextra
-FLAGS =
+FLAGS = -Wall -Werror -Wextra
+# FLAGS =
 
 # ------------------------------ Couleurs ------------------------------
 
